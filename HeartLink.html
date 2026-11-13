@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Sstyl.css">
+<title>My Love For You 💕</title>
+
+</head>
+<body>
+
+<!-- Floating hearts canvas -->
+<canvas id="hearts-canvas"></canvas>
+
+<!-- Transition overlay -->
+<div id="transition-overlay">
+    <span class="transition-heart">💖</span>
+</div>
+
+<!-- ============ LAYER 1 ============ -->
+<section id="layer1">
+    <div class="hero-card">
+        <span class="hero-emoji">💕</span>
+        <h1 class="hero-title">You Love Me?</h1>
+        <p class="hero-subtitle">A little question with a big answer...</p>
+    <div class="btn-row">
+        <button class="btn-yes" id="btn-yes" onclick="handleYes()">Yes 💖</button>
+    </div>
+        <button class="btn-no" id="btn-no">No 🙈</button>
+    </div>
+</section>
+
+<!-- ============ LAYERS 2 & 3 ============ -->
+<div id="layers-container">
+
+<!-- Wave divider -->
+    <div class="section-wave" style="background:#fff5f9;">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;height:60px;width:100%;">
+            <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#fff5f9"/>
+        </svg>
+    </div>
+
+  <!-- ============ LAYER 2 ============ -->
+<section id="layer2">
+    <div class="section-heading fade-in">
+        <h2>Our Beautiful Story</h2>
+        <p>Every moment with you is a treasure</p>
+        <div class="divider"></div>
+    </div>
+
+    <!-- Card 1 – Romantic text -->
+    <div class="memory-card">
+      <div class="memory-img-wrap">
+        <img src="WhatsApp Image 2026-04-12 at 2.49.43 PM.jpeg" alt="Romantic moment" loading="lazy" />
+      </div>
+      <div class="memory-content">
+        <h3>You are my everything</h3>
+        <p>
+          In a world full of noise, you are my quiet place. Every time I see your smile, I remember why I fell in love with you in the first place. You are not just the person I love — you are the reason I smile without reason, the warmth I feel on cold nights, and the dream I never want to wake up from.
+        </p>
+        <p style="margin-top:1rem;">
+          With you, every ordinary day feels like a fairytale. I am grateful for every laugh we've shared, every tear we've wiped away, and every silent moment that said more than words ever could. You are my home. 💗
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2 – Dates -->
+    <div class="memory-card reverse">
+      <div class="memory-img-wrap">
+        <img src="img 2.jpeg" alt="Our dates" loading="lazy" />
+      </div>
+      <div class="memory-content">
+        <h3>Dates we'll never forget</h3>
+        <ul class="dates-list">
+          <li>
+            <div class="date-icon">🌸</div>
+            <div class="date-info">
+              <span class="date-label">First time we met</span>
+              <span class="date-value">March 14, 2022</span>
+            </div>
+          </li>
+          <li>
+            <div class="date-icon">💬</div>
+            <div class="date-info">
+              <span class="date-label">First "I Love You"</span>
+              <span class="date-value">June 8, 2022</span>
+            </div>
+          </li>
+          <li>
+            <div class="date-icon">💍</div>
+            <div class="date-info">
+              <span class="date-label">Engagement day</span>
+              <span class="date-value">February 14, 2024</span>
+            </div>
+          </li>
+          <li>
+            <div class="date-icon">🌹</div>
+            <div class="date-info">
+              <span class="date-label">Wedding day</span>
+              <span class="date-value">September 20, 2025</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 3 – Song -->
+    <div class="memory-card">
+      <div class="song-poster">
+        <div class="song-poster-inner">
+          <span class="song-poster-icon">🎵</span>
+          <div class="song-poster-title">Perfect</div>
+          <div class="song-poster-artist">Ed Sheeran</div>
+        </div>
+      </div>
+      <div class="memory-content">
+        <div class="song-info">
+          <h3>Senen 🎶</h3>
+          <p class="artist">Amr diab — Senen</p>
+          <div class="custom-player">
+            <div class="player-controls">
+              <button class="play-btn" id="play-btn" onclick="togglePlay()">▶</button>
+              <div class="player-info">
+                <div class="player-time">
+                  <span id="current-time">0:00</span>
+                  <span id="duration">4:29</span>
+                </div>
+                <audio id="Love" preload="none">
+                    
+                </audio>
+                <div class="progress-wrap" id="progress-wrap" onclick="seekAudio(event)">
+                  <div class="progress-bar" id="progress-bar"></div>
+                </div>
+              </div>
+            </div>
+            <div class="volume-row">
+              🔊
+              <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.7" oninput="setVolume(this.value)" />
+            </div>
+          </div>
+          <p style="color:var(--text-light);font-size:0.82rem;margin-top:0.8rem;font-style:italic;">"I found a love, for me. Darling just dive right in, and follow my lead..." 💕</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider 2 -->
+  <div class="section-wave" style="background:#ffe0ef;">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;height:60px;width:100%;">
+      <path d="M0,0 C360,50 1080,10 1440,40 L1440,60 L0,60 Z" fill="#ffe0ef"/>
+    </svg>
+  </div>
+
+  <!-- ============ LAYER 3 ============ -->
+  <section id="layer3">
+    <div class="section-heading fade-in">
+      <h2>Find Me Here</h2>
+      <p>Reach out anytime — my heart is always open for you</p>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" href="tel:+201234567890" id="contact-phone">
+        <div class="contact-icon phone">📞</div>
+        <span class="contact-label">Phone</span>
+        <span class="contact-value">+20 123 456 7890</span>
+      </a>
+      <a class="contact-card" href="https://instagram.com/yourusername" target="_blank" id="contact-insta">
+        <div class="contact-icon insta">📸</div>
+        <span class="contact-label">Instagram</span>
+        <span class="contact-value">@yourusername</span>
+      </a>
+      <a class="contact-card" href="https://facebook.com/yourusername" target="_blank" id="contact-fb">
+        <div class="contact-icon fb">👤</div>
+        <span class="contact-label">Facebook</span>
+        <span class="contact-value">Your Name</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    Made with 💖 just for you — forever and always
+  </footer>
+
+</div><!-- /layers-container -->
+
+<!-- Hidden audio element (you can swap src with your own track) -->
+<audio id="love-audio" preload="control auto">
+    <source src="audio1.mpeg" type="audio/mpeg">
+  <!-- Add your audio src here, e.g.: <source src="perfect.mp3" type="audio/mpeg"> -->
+</audio>
+
+<script>
+// ============================================================
+// FLOATING HEARTS
+// ============================================================
+(function() {
+  const canvas = document.getElementById('hearts-canvas');
+  const ctx = canvas.getContext('2d');
+  let hearts = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function heartPath(ctx, x, y, size) {
+    ctx.beginPath();
+    ctx.moveTo(x, y + size * 0.3);
+    ctx.bezierCurveTo(x, y, x - size * 0.5, y, x - size * 0.5, y + size * 0.3);
+    ctx.bezierCurveTo(x - size * 0.5, y + size * 0.65, x, y + size * 0.9, x, y + size * 1.1);
+    ctx.bezierCurveTo(x, y + size * 0.9, x + size * 0.5, y + size * 0.65, x + size * 0.5, y + size * 0.3);
+    ctx.bezierCurveTo(x + size * 0.5, y, x, y, x, y + size * 0.3);
+    ctx.closePath();
+  }
+
+  function spawnHeart() {
+    hearts.push({
+      x: Math.random() * canvas.width,
+      y: canvas.height + 20,
+      size: 8 + Math.random() * 18,
+      speed: 0.4 + Math.random() * 0.7,
+      opacity: 0.25 + Math.random() * 0.35,
+      drift: (Math.random() - 0.5) * 0.5,
+      wobble: Math.random() * Math.PI * 2,
+      wobbleSpeed: 0.018 + Math.random() * 0.02
+    });
+  }
+
+  let spawnTimer = 0;
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    spawnTimer++;
+    if (spawnTimer > 28) { spawnHeart(); spawnTimer = 0; }
+    hearts = hearts.filter(h => h.y > -50);
+    hearts.forEach(h => {
+      h.y -= h.speed;
+      h.wobble += h.wobbleSpeed;
+      h.x += Math.sin(h.wobble) * 0.5 + h.drift;
+      ctx.save();
+      ctx.globalAlpha = h.opacity;
+      ctx.fillStyle = '#ff9dbf';
+      heartPath(ctx, h.x, h.y, h.size);
+      ctx.fill();
+      ctx.restore();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// ============================================================
+// NO BUTTON ESCAPE
+// ============================================================
+(function() {
+  const btn = document.getElementById('btn-no');
+  let placed = false;
+
+  function placeBtn() {
+    if (!placed) {
+      btn.style.top = '50%';
+      btn.style.left = '50%';
+      btn.style.transform = 'translate(110px, 50px)';
+      placed = true;
+    }
+  }
+  placeBtn();
+
+  document.addEventListener('mousemove', function(e) {
+    const rect = btn.getBoundingClientRect();
+    const bx = rect.left + rect.width / 2;
+    const by = rect.top + rect.height / 2;
+    const dist = Math.hypot(e.clientX - bx, e.clientY - by);
+
+    if (dist < 120) {
+      const card = document.querySelector('.hero-card');
+      const cRect = card.getBoundingClientRect();
+
+      const maxX = cRect.width / 2 - btn.offsetWidth / 2 - 8;
+      const maxY = cRect.height / 2 - btn.offsetHeight / 2 - 8;
+
+      let nx = (bx - e.clientX) * 1.8 + (bx - cRect.left - cRect.width / 2);
+      let ny = (by - e.clientY) * 1.8 + (by - cRect.top - cRect.height / 2);
+
+      nx = Math.max(-maxX, Math.min(maxX, nx));
+      ny = Math.max(-maxY, Math.min(maxY, ny));
+
+      btn.style.transition = 'transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94)';
+      btn.style.transform = `translate(calc(-50% + ${nx}px), calc(-50% + ${ny}px))`;
+    }
+  });
+
+  // Touch support
+  document.addEventListener('touchmove', function(e) {
+    const touch = e.touches[0];
+    const rect = btn.getBoundingClientRect();
+    const bx = rect.left + rect.width / 2;
+    const by = rect.top + rect.height / 2;
+    const dist = Math.hypot(touch.clientX - bx, touch.clientY - by);
+    if (dist < 120) {
+      const dx = (bx - touch.clientX) * 2;
+      const dy = (by - touch.clientY) * 2;
+      btn.style.transition = 'transform 0.22s';
+      btn.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
+    }
+  }, { passive: true });
+})();
+
+// ============================================================
+// YES BUTTON → TRANSITION
+// ============================================================
+function handleYes() {
+  const overlay = document.getElementById('transition-overlay');
+  overlay.classList.add('active');
+
+  // Burst hearts around the button
+  burstHearts();
+
+  setTimeout(() => {
+    document.getElementById('layer1').style.display = 'none';
+    document.getElementById('layers-container').classList.add('visible');
+    overlay.classList.remove('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    // Trigger scroll observer
+    observeElements();
+  }, 900);
+}
+
+function burstHearts() {
+  const btn = document.getElementById('btn-yes');
+  const rect = btn.getBoundingClientRect();
+  for (let i = 0; i < 10; i++) {
+    const h = document.createElement('div');
+    h.textContent = '💖';
+    h.style.cssText = `position:fixed;left:${rect.left + rect.width/2}px;top:${rect.top}px;font-size:1.4rem;pointer-events:none;z-index:9999;transition:all 0.8s ease;`;
+    document.body.appendChild(h);
+    const angle = (i / 10) * Math.PI * 2;
+    const dist = 60 + Math.random() * 60;
+    setTimeout(() => {
+      h.style.transform = `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist - 40}px)`;
+      h.style.opacity = '0';
+    }, 50);
+    setTimeout(() => h.remove(), 900);
+  }
+}
+
+// ============================================================
+// SCROLL ANIMATIONS
+// ============================================================
+function observeElements() {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.memory-card, .fade-in, .contact-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.07}s`;
+    io.observe(el);
+  });
+}
+
+// ============================================================
+// AUDIO PLAYER
+// ============================================================
+const audio = document.getElementById('love-audio');
+let playing = false;
+
+function togglePlay() {
+  const btn = document.getElementById('play-btn');
+  if (playing) {
+    audio.pause();
+    btn.textContent = '▶';
+    playing = false;
+  } else {
+    // If no src set, just animate the button
+    if (!audio.src || audio.src === window.location.href) {
+      // Demo mode — simulate progress
+      simulateDemo();
+      btn.textContent = '⏸';
+      playing = true;
+    } else {
+      audio.play();
+      btn.textContent = '⏸';
+      playing = true;
+    }
+  }
+}
+
+let demoInterval;
+let demoProgress = 0;
+const DEMO_DURATION = 263; // 4:23 in seconds
+
+function simulateDemo() {
+  clearInterval(demoInterval);
+  demoInterval = setInterval(() => {
+    if (!playing) { clearInterval(demoInterval); return; }
+    demoProgress = Math.min(demoProgress + 1, DEMO_DURATION);
+    updatePlayerUI(demoProgress, DEMO_DURATION);
+    if (demoProgress >= DEMO_DURATION) {
+      clearInterval(demoInterval);
+      playing = false;
+      document.getElementById('play-btn').textContent = '▶';
+      demoProgress = 0;
+    }
+  }, 1000);
+}
+
+function updatePlayerUI(current, total) {
+  document.getElementById('current-time').textContent = formatTime(current);
+  document.getElementById('duration').textContent = formatTime(total);
+  const pct = (current / total) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+}
+
+function formatTime(s) {
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60).toString().padStart(2, '0');
+  return `${m}:${sec}`;
+}
+
+audio.addEventListener('timeupdate', () => {
+  if (audio.duration) updatePlayerUI(audio.currentTime, audio.duration);
+});
+
+audio.addEventListener('ended', () => {
+  playing = false;
+  document.getElementById('play-btn').textContent = '▶';
+});
+
+function seekAudio(e) {
+  const wrap = document.getElementById('progress-wrap');
+  const pct = e.offsetX / wrap.offsetWidth;
+  if (audio.src && audio.src !== window.location.href && audio.duration) {
+    audio.currentTime = pct * audio.duration;
+  } else {
+    demoProgress = Math.round(pct * DEMO_DURATION);
+    updatePlayerUI(demoProgress, DEMO_DURATION);
+  }
+}
+
+function setVolume(v) {
+  audio.volume = parseFloat(v);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+window.addEventListener('DOMContentLoaded', () => {
+  audio.volume = 0.7;
+});
+</script>
+</body>
+</html>
